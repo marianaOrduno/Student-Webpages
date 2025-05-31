@@ -1,0 +1,213 @@
+<head>
+
+        <title>Secure Password Generator</title>
+
+        <style>
+
+            body {
+
+                margin: 0px;
+
+                height: 100vh;
+
+                background-color: #231942;
+
+                color: #5e548e;
+
+                display: flex;
+
+                justify-content: center;
+
+                align-items: center;
+
+                font-family: "Inter", serif;
+
+            }
+
+
+            #title {
+
+                font-family: "Karla", serif;
+
+                font-weight: 800;
+
+                margin-bottom: 10px;
+
+                line-height: 33px;
+
+            }
+
+
+            #green-text {
+
+                display: block;
+
+                color: #5e548e;
+
+                margin: 0px;
+
+            }
+
+
+            #description {
+
+                margin-top: 0px;
+
+                margin-bottom: 35px;
+
+                color: #5e548e;
+
+            }
+
+
+            #container1 {
+
+                background-color: #9f86c0;
+
+                padding: 100px 50px;
+
+                width: 350px;
+
+                margin: 20px;
+
+            }
+
+
+            #btn1 {
+
+                background-color: #231942;
+
+                color: #ffffff;
+
+                width: 145px;
+
+                margin-bottom: 10px;
+
+                padding: 7px 7px;
+
+                border: none;
+
+                border-radius: 5px;
+
+                font-family: "Inter", serif;
+
+            }
+
+
+            #text-container {
+
+                display: flex;
+
+                flex-direction: column;
+
+            }
+
+
+            .passwords-container {
+
+                margin: 16px auto;
+
+                text-align: center;
+
+                width: 100%;
+
+            }
+
+
+            .passwords {
+
+                margin: 5px;
+
+                width: 162px;
+
+                display: inline-block;
+
+                border-radius: 5px;
+
+                padding: 5px 0px;
+
+                background-color: #231942;
+
+                color: #9f86c0;
+
+                font-weight: 500;
+
+                height: 20px;
+
+            }
+
+
+            hr {
+
+                color: #2F3E53;
+
+            }
+
+        </style>
+
+    </head>
+
+    <body>
+
+        <div id="container1">
+
+            <div id="text-container">
+
+                <h1 id="title">Generate a <span id="green-text">Random Password</span></h1>
+
+                <p id="description">Never use an insecure password again.</p>
+
+                <button id="btn1">Generate Password</button>
+
+            </div>
+
+            <hr>
+
+            <div class="passwords-container">
+
+                <span class="passwords" id="password1"></span>
+
+                <span class="passwords" id="password2"></span>
+
+            </div>
+
+        </div>
+
+        <script>
+
+            const characters = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9","~","`","!","@","#","$","%","^","&","*","(",")","_","-","+","=","{","[","}","]",",","|",":",";","<",">",".","?","/"];
+
+
+            function generatePassword() {
+
+                function getRandomPassword() {
+
+                    let password = "";
+
+                    for (let i = 0; i < 14; i++) {
+
+                        let randomNumber = Math.floor(Math.random() * characters.length);
+
+                        password += characters[randomNumber];
+
+                    }
+
+                    return password;
+
+                }
+
+
+                document.getElementById("password1").textContent = getRandomPassword();
+
+                document.getElementById("password2").textContent = getRandomPassword();
+
+            }
+
+
+            document.getElementById("btn1").addEventListener("click", generatePassword);
+
+        </script>
+
+    </body>
+
+</html>
